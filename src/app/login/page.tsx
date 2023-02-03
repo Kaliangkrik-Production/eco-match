@@ -15,8 +15,8 @@ export default function Login(){
                                 <input type="checkbox" className="mr-2 bg-[#a3e062]" id="remember" value="remember" name="remember"/>
                                 <label htmlFor="remember">Remember me</label>
                             </div>
-                            <button type="submit" className="bg-[#FFDF70] text-black rounded-lg px-3 py-2 mt-4">Login</button>
-                            <label className="mt-4">Don't have an account? <a href="/signup" className="text-[#FE7968] font-bold">Sign up</a></label>
+                            <button type="submit" className="bg-[#FFDF70] text-black rounded-lg px-3 py-2 mt-4 hover:bg-yellow-400">Login</button>
+                            <label className="mt-4">Don't have an account? <a href="/signup" className="text-[#FE7968] font-bold hover:underline">Sign up</a></label>
                         </div>
                     </div>
                 </div>
