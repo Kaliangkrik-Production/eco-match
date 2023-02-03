@@ -1,6 +1,7 @@
 export default function Signup() {
   return (
     <div className="flex h-screen w-full flex-row bg-white" id="home">
+      <div className="flex flex-col w-1/2 bg-black"/>
       <div className="flex flex-col w-1/2 bg-white">
         <div className="flex flex-col items-center justify-center h-screen">
           <div className="flex flex-col items-center justify-center bg-blue-400 rounded-lg shadow-lg p-8">
@@ -24,7 +25,6 @@ export default function Signup() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-1/2 bg-black"/>
     </div>
   );
 }
