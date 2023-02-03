@@ -1,3 +1,3 @@
-export default function Page() {
-  return <div></div>;
+export default function KampasKopling() {
+  return <div className="bg-blue-400">Entah Dimana Dirimu Berada</div>;
 }
