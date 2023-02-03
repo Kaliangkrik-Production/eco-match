@@ -10,31 +10,108 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Account {
-  accountId Int    @id @default(autoincrement()) @map("account_id")
-  username  String @db.VarChar(32)
-  password  String
-  email     String @unique @db.VarChar(64)
-  User      User?
+model User {
+  userId      Int      @id @default(autoincrement()) @map("user_id")
+  avatarUrl   String?  @map("avatar_url")
+  firstName   String   @map("first_name") @db.VarChar(128) // first time created will be filled with username value
+  lastName    String?  @map("last_name") @db.VarChar(128)
+  gender      Gender?
+  address     String?
+  email       String   @unique @db.VarChar(64)
+  username    String   @unique @db.VarChar(32)
+  password    String // hashed
+  phoneNumber String?  @unique @db.VarChar(16)
+  Review      Review[]
+  Store       Store?
 
-  @@unique([username, password])
-  @@map("accounts")
+  @@unique(fields: [firstName, lastName], name: "full_name_idx")
+  @@map("users")
 }
 
-model User {
-  userId    Int     @id @default(autoincrement()) @map("user_id")
-  accountId Int     @unique @map("account_id")
-  account   Account @relation(fields: [accountId], references: [accountId])
-  firstName String? @map("first_name") @db.VarChar(128)
-  lastName  String? @map("last_name") @db.VarChar(128)
-  gender    Gender?
-  address   String?
+model Category {
+  categoryId          Int       @id @default(autoincrement()) @map("category_id")
+  categoryName        String    @map("category_name") @db.VarChar(32)
+  categoryDescription String    @map("category_description")
+  Product             Product[]
 
-  @@unique([firstName, lastName])
-  @@map("users")
+  @@map("categories")
+}
+
+model Education {
+  educationId     Int      @id @default(autoincrement()) @map("education_id")
+  title           String
+  content         String
+  referenceSource String[] @map("reference_source")
+
+  @@map("educations")
+}
+
+// perlu dipertimbangkan field seperti user
+model Store {
+  storeId            Int       @id @default(autoincrement()) @map("store_id")
+  userId             Int       @unique @map("user_id")
+  user               User      @relation(fields: [userId], references: [userId])
+  storeName          String    @map("store_name") @db.VarChar(128)
+  biography          String?
+  address            String
+  location           Json
+  galeryUrl          String[]  @map("galery_url")
+  contactInformation String    @map("contact_information")
+  Event              Event[]
+  Review             Review[]
+  Product            Product[]
+
+  @@map("stores")
+}
+
+model Event {
+  eventId          Int         @id @default(autoincrement()) @map("event_id")
+  storeId          Int         @map("store_id")
+  store            Store       @relation(fields: [storeId], references: [storeId])
+  bannerUrl        String      @map("banner_url")
+  eventDescription String      @map("event_description")
+  startDate        DateTime    @map("start_date")
+  endDate          DateTime    @map("end_date")
+  status           EventStatus
+
+  @@map("events")
+}
+
+model Product {
+  productId          Int      @id @default(autoincrement()) @map("product_id")
+  storeId            Int      @map("store_id")
+  store              Store    @relation(fields: [storeId], references: [storeId])
+  categoryId         Int      @map("category_id")
+  category           Category @relation(fields: [categoryId], references: [categoryId])
+  productName        String   @map("product_name") @db.VarChar(255)
+  productDescription String   @map("product_description")
+  price              Decimal
+  stock              Int
+  imageUrl           String[] @map("image_url")
+
+  @@map("products")
+}
+
+model Review {
+  reviewId   BigInt   @id @default(autoincrement()) @map("review_id")
+  storeId    Int      @map("book_id")
+  store      Store    @relation(fields: [storeId], references: [storeId])
+  userId     Int      @map("user_id")
+  user       User     @relation(fields: [userId], references: [userId])
+  rating     Int      @db.SmallInt
+  reviewText String   @map("review_text")
+  reviewDate DateTime @default(now()) @map("review_date")
+
+  @@map("reviews")
 }
 
 enum Gender {
   MALE
   FEMALE
+}
+
+enum EventStatus {
+  NOT_YET_STARTED
+  ON_GOING
+  FINISHED
 }
