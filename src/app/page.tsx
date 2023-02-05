@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar";
+import Image from "next/image";
 
 export default function Page() {
   //logic disini
@@ -6,7 +7,6 @@ export default function Page() {
   //i am here
   return (
     <main>
-      <NavBar />
       <div
         className="flex h-screen w-full flex-row bg-white"
         id="home"
@@ -19,14 +19,11 @@ export default function Page() {
             <h2 className="text-lg font-extrabold text-green-800 md:text-2xl lg:text-3xl">
               green products stores locator.
             </h2>
-            <div className="flex flex-row items-center justify-center gap-4 pt-8 text-xs font-bold text-white md:text-sm lg:text-lg">
-              <a className="rounded-lg bg-green-400 px-8 py-2">Sign In</a>
-              <a className="rounded-lg bg-red-400 px-8 py-2">Sign Up</a>
-            </div>
+            <a className="rounded-lg bg-yellow-300 px-8 py-2 text-xs font-bold text-white">Register Now</a>
           </div>
         </div>
-        <div className="collapse h-full bg-black md:visible md:w-1/2">
-          ILUSTRASI
+        <div className="collapse h-ful md:visible md:w-1/2 place-content-center">
+          <Image src="https://cdn.discordapp.com/attachments/1071765184126914680/1071768249345265725/gunung.png" alt="illustrasi" width={1200} height={1000}/>
         </div>
       </div>
       <div
