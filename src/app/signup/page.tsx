@@ -1,30 +1,67 @@
 export default function Signup() {
   return (
-    <div className="flex h-screen w-full flex-row bg-white" id="home">
-      <div className="flex flex-col w-1/2 bg-black"/>
-      <div className="flex flex-col w-1/2 bg-white">
-        <div className="flex flex-col items-center justify-center h-screen">
-          <div className="flex flex-col items-center justify-center bg-[#97D779] rounded-lg shadow-lg p-8">
-            <h1 className="text-3xl font-bold mb-4">Sign up</h1>
-            <div className="flex flex-col w-full">
-              <label className="mb-2">Email</label>
-              <input className="border rounded-lg px-3 py-2 mb-4" type="email" placeholder="Email" />
-              <label className="mb-2">Username</label>
-              <input className="border rounded-lg px-3 py-2 mb-4" type="text" placeholder="Username" />
-              <label className="mb-2">Password</label>
-              <input className="border rounded-lg px-3 py-2 mb-4" type="password" placeholder="Password" />
-              <label className="mb-2">Confirm password</label>
-              <input className="border rounded-lg px-3 py-2 mb-4" type="password" placeholder="Confirm password" />
-              <div className="flex flex-row flex-auto">
-                <input type="checkbox" className="mr-2 bg-[#a3e062]" id="agreeTOS" value="agreeTOS" name="agreeTOS" />
-                <label htmlFor="agreeTOS">I agree to the <a href="/tos" className="text-white font-semibold hover:underline">Terms of Service</a></label>
-              </div>
-              <button type="submit" className="bg-[#FFDF70] text-black rounded-lg px-3 py-2 mt-4 hover:bg-yellow-400">Sign up</button>
-              <label className="mt-4">Already have an account? <a href="/login" className="text-[#FE7968] font-bold hover:underline">Login</a></label>
-            </div>
+    <main className="flex h-screen w-screen items-center justify-end bg-[url('https://cdn.discordapp.com/attachments/1071765184126914680/1072021539211464714/Sign-Up.png')] bg-cover bg-left">
+      <div className="flex h-screen w-full flex-col items-center justify-center gap-24 rounded-l-[2rem] bg-white lg:w-1/2">
+        <h1 className="text-6xl font-bold">Sign Up</h1>
+        <div className="flex w-3/4 flex-col gap-8 text-xl font-semibold">
+          <label>Email</label>
+          <input
+            className="h-12 rounded-lg border border-black"
+            type="email"
+            placeholder="        Email"
+          />
+
+          <label>Username</label>
+          <input
+            className="h-12 rounded-lg border border-black"
+            type="email"
+            placeholder="        Username"
+          />
+
+          <label className="">Password</label>
+          <input
+            className="h-12 rounded-lg border border-black"
+            type="password"
+            placeholder="        Password"
+          />
+
+          <label className="">Confirm Password</label>
+          <input
+            className="h-12 rounded-lg border border-black"
+            type="password"
+            placeholder="        Confirm Password"
+          />
+
+          <div className="flex flex-auto flex-row">
+            <input
+              type="checkbox"
+              className="bg-[#a3e062]"
+              id="remember"
+              value="remember"
+              name="remember"
+            />
+            <label htmlFor="remember">
+              By signing up, you agree to the terms of service and privacy
+              policy
+            </label>
           </div>
+          <button
+            type="submit"
+            className="h-12 rounded-lg bg-[#FFDF70] text-black duration-500 hover:bg-yellow-400"
+          >
+            Sign Up
+          </button>
+          <label>
+            Already have an account?
+            <a
+              href="/signin"
+              className="font-bold text-[#FE7968] hover:underline"
+            >
+              Sign In
+            </a>
+          </label>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
