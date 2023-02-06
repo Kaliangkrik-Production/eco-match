@@ -5,23 +5,23 @@ export default function Signin() {
     <main className="h-screen w-screen bg-[url('https://cdn.discordapp.com/attachments/1071765184126914680/1072021538938814594/Sign-In.png')] bg-cover bg-right">
       <div className="flex h-screen w-full flex-col items-center justify-center gap-24 rounded-r-[2rem] bg-white lg:w-1/2">
         <h1 className="text-6xl font-bold">Sign In</h1>
-        <div className="flex w-3/4 flex-col gap-8 text-xl font-semibold">
+        <div className="flex w-3/4 flex-col gap-5 text-xl font-semibold">
           <label>Username/Email</label>
           <input
-            className="h-12 rounded-lg border border-black"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-black focus:border-blue-500 focus:ring-blue-500"
             type="email"
-            placeholder="        Username or Email"
+            placeholder="Username or Email"
           />
           <label className="">Password</label>
           <input
-            className="h-12 rounded-lg border border-black"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
             type="password"
-            placeholder="        Password"
+            placeholder="Password"
           />
           <div className="flex flex-auto flex-row">
             <input
               type="checkbox"
-              className="bg-[#a3e062]"
+              className="bg-green-500"
               id="remember"
               value="remember"
               name="remember"
