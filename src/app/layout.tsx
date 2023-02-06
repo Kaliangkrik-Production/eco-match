@@ -15,10 +15,7 @@ export default function RootLayout({
       className="overflow-x-hidden scroll-smooth"
     >
       <head />
-      <body className={inter.className}>
-        <NavBar />
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

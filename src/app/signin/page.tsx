@@ -1,27 +1,50 @@
-export default function Login(){
-    return (
-        <div className="flex h-screen w-full flex-row bg-white"
-        id="home">
-            <div className="flex flex-col w-1/2 bg-white">
-                <div className="flex flex-col items-center justify-center h-screen">
-                    <div className="flex flex-col items-center justify-center bg-[#97D779] rounded-lg shadow-lg p-8">
-                        <h1 className="text-3xl font-bold mb-4">Login</h1>
-                        <div className="flex flex-col w-full">
-                            <label className="mb-2">Email</label>
-                            <input className="border rounded-lg px-3 py-2 mb-4" type="email" placeholder="Email"/>
-                            <label className="mb-2">Password</label>
-                            <input className="border rounded-lg px-3 py-2 mb-4" type="password" placeholder="Password"/>
-                            <div className="flex flex-row flex-auto">
-                                <input type="checkbox" className="mr-2 bg-[#a3e062]" id="remember" value="remember" name="remember"/>
-                                <label htmlFor="remember">Remember me</label>
-                            </div>
-                            <button type="submit" className="bg-[#FFDF70] text-black rounded-lg px-3 py-2 mt-4 hover:bg-yellow-400">Login</button>
-                            <label className="mt-4">Don't have an account? <a href="/signup" className="text-[#FE7968] font-bold hover:underline">Sign up</a></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="flex flex-col w-1/2 bg-black"/>            
+import Image from "next/image";
+
+export default function Signin() {
+  return (
+    <main className="h-screen w-screen bg-[url('https://cdn.discordapp.com/attachments/1071765184126914680/1072021538938814594/Sign-In.png')] bg-cover bg-right">
+      <div className="flex h-screen w-full flex-col items-center justify-center gap-24 rounded-r-[2rem] bg-white lg:w-1/2">
+        <h1 className="text-6xl font-bold">Sign In</h1>
+        <div className="flex w-3/4 flex-col gap-8 text-xl font-semibold">
+          <label>Username/Email</label>
+          <input
+            className="h-12 rounded-lg border border-black"
+            type="email"
+            placeholder="        Username or Email"
+          />
+          <label className="">Password</label>
+          <input
+            className="h-12 rounded-lg border border-black"
+            type="password"
+            placeholder="        Password"
+          />
+          <div className="flex flex-auto flex-row">
+            <input
+              type="checkbox"
+              className="bg-[#a3e062]"
+              id="remember"
+              value="remember"
+              name="remember"
+            />
+            <label htmlFor="remember">Remember me</label>
+          </div>
+          <button
+            type="submit"
+            className="h-12 rounded-lg bg-[#FFDF70] text-black duration-500 hover:bg-yellow-400"
+          >
+            Login
+          </button>
+          <label>
+            Don't have an account?{" "}
+            <a
+              href="/signup"
+              className="font-bold text-[#FE7968] hover:underline"
+            >
+              Sign up
+            </a>
+          </label>
         </div>
-    )
+      </div>
+    </main>
+  );
 }

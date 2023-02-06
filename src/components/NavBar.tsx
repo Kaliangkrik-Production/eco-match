@@ -22,8 +22,22 @@ export default function NavBar() {
       </div>
 
       <div className="mr-12 flex flex-row items-center justify-center gap-4 text-white">
-        <a className="rounded-lg bg-green-400 px-8 py-2">Sign In</a>
-        <a className="rounded-lg bg-red-400 px-8 py-2">Sign Up</a>
+        <a
+          href="/signin"
+          className="rounded-lg bg-green-400"
+        >
+          <div className="flex h-10 w-28 items-center justify-center">
+            Sign In
+          </div>
+        </a>
+        <a
+          href="/signup"
+          className="rounded-lg bg-red-400"
+        >
+          <div className="flex h-10 w-28 items-center justify-center">
+            Sign Up
+          </div>
+        </a>
       </div>
     </div>
   );

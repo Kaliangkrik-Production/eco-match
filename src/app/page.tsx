@@ -7,23 +7,33 @@ export default function Page() {
   //i am here
   return (
     <main>
-      <div
-        className="flex h-screen w-full flex-row bg-white"
-        id="home"
-      >
-        <div className="flex w-full flex-row items-center justify-center md:w-1/2">
-          <div className="flex flex-col items-start justify-center">
-            <h1 className="text-4xl font-extrabold text-green-800 md:text-6xl lg:text-8xl">
-              EcoMatch
-            </h1>
-            <h2 className="text-lg font-extrabold text-green-800 md:text-2xl lg:text-3xl">
-              green products stores locator.
-            </h2>
-            <a className="rounded-lg bg-yellow-300 px-8 py-2 text-xs font-bold text-white">Register Now</a>
+      <NavBar />
+      <div className="flex h-screen w-full flex-row justify-center bg-white font-extrabold">
+        <div className="flex w-screen flex-row items-center justify-center md:w-1/2">
+          <div className="flex flex-col items-start justify-center gap-10">
+            <div>
+              <h1 className="text-4xl text-green-800 md:text-6xl lg:text-8xl">
+                EcoMatch
+              </h1>
+              <h2 className="text-lg text-green-800 md:text-2xl lg:text-3xl">
+                green products stores locator.
+              </h2>
+            </div>
+
+            <a className="rounded-lg bg-yellow-400 text-lg text-white">
+              <div className="flex h-12 w-44 items-center justify-center">
+                Register Now
+              </div>
+            </a>
           </div>
         </div>
-        <div className="collapse h-ful md:visible md:w-1/2 place-content-center">
-          <Image src="https://cdn.discordapp.com/attachments/1071765184126914680/1071768249345265725/gunung.png" alt="illustrasi" width={1200} height={1000}/>
+        <div className="hidden h-full items-center justify-center md:visible md:flex md:w-1/2">
+          <Image
+            src="https://cdn.discordapp.com/attachments/1071765184126914680/1072021539458916412/landing.jpeg"
+            alt="illustrasi"
+            width={1200}
+            height={1000}
+          />
         </div>
       </div>
       <div
