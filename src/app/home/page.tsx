@@ -1,42 +1,81 @@
-export default function Home(){
-    return (
-        <div className="flex flex-col items-center justify-center h-screen w-screen bg-[#1D796C]">
-            <div className="flex flex-row items-center justify-center h-screen w-screen">
-                <div className="flex flex-col items-center justify-center h-screen w-1/6 bg-[#1D796C] rounded-tr-lg rounded-br-lg">
-                    <div className="flex flex-col items-end justify-start h-fit w-5/6 bg-[#97D779] rounded-lg shadow-black shadow-lg pb-8 pt-8">
-                        {/* Navbar Button */}
-                        {/* Home, About, Market, Map */}
-                        <div className="w-[95%] mb-6 text-center text-2xl font-bold h-1/7 hover:bg-white rounded-l-full">
-                            <a href="#home" className="mr-3">Home</a>
-                        </div>
-                        <div className="w-[95%] mb-6 text-center text-2xl font-bold h-1/7 hover:bg-white rounded-l-full">
-                            <a href="#about" className="mr-3">About</a>
-                        </div>
-                        <div className="w-[95%] mb-6 text-center text-2xl font-bold h-1/7 hover:bg-white rounded-l-full">
-                            <a href="#market" className="mr-3">Market</a>
-                        </div>
-                        <div className="w-[95%] mb-6 text-center text-2xl font-bold h-1/7 hover:bg-white rounded-l-full">
-                            <a href="#map" className="mr-3">Map</a>
-                        </div>
-                        <line className="border-b-2 border-[#1D796C] w-full mb-8 mt-2"/>
-                        {/* Categories, Education, Help */}
-                        <div className="w-[95%] mb-6 text-center text-2xl font-bold h-1/7 hover:bg-white rounded-l-full">
-                            <a href="#categories" className="mr-3">Categories</a>
-                        </div>
-                        <div className="w-[95%] mb-6 text-center text-2xl font-bold h-1/7 hover:bg-white rounded-l-full">
-                            <a href="#education" className="mr-3">Education</a>
-                        </div>
-                        <div className="w-[95%] mb-6 text-center text-2xl font-bold h-1/7 hover:bg-white rounded-l-full">
-                            <a href="#help" className="mr-3">Help</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex flex-col items-center justify-center h-[95%] w-5/6 bg-white rounded-2xl m-6">
-                    <div className="flex flex-col items-center justify-center h-[97%] w-[98%]">
-                        
-                    </div>
-                </div>
-            </div>
+import Footer from "@/components/Footer";
+import NavbarAfterLogin from "@/components/NavbarAfterLogin";
+
+export default function Home() {
+  return (
+    <main>
+      <NavbarAfterLogin />
+      <div className="h-auto min-h-screen p-24">
+        <div className="flex items-center justify-center">
+          <input
+            className="block w-3/4 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+            type="search"
+            placeholder="Search"
+          />
         </div>
-    )
+        <div className="py-24">
+          <div className="flex scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap rounded-lg">
+            <div className="h-96 w-full bg-black"></div>
+          </div>
+        </div>
+
+        <div className="py-24">
+          <div className="items-top flex flex-row justify-between">
+            <h1 className="mb-8 text-2xl font-bold">Popular Market</h1>
+            <a
+              href="/market"
+              className="text-xl"
+            >
+              See All
+            </a>
+          </div>
+          <div className="flex scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
+            <div className="aspect-video h-64 bg-black"></div>
+            <div className="aspect-video h-64 bg-black"></div>
+            <div className="aspect-video h-64 bg-black"></div>
+            <div className="aspect-video h-64 bg-black"></div>
+            <div className="aspect-video h-64 bg-black"></div>
+            <div className="aspect-video h-64 bg-black"></div>
+            <div className="aspect-video h-64 bg-black"></div>
+          </div>
+        </div>
+
+        <div className="flex h-auto w-full flex-col py-24 lg:flex-row">
+          {/*Kategori*/}
+          <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
+            <div className="items-top flex w-full flex-row justify-between">
+              <h1 className="mb-8 text-2xl font-bold">Categories</h1>
+              <a
+                href="/categories"
+                className="text-xl"
+              >
+                See All
+              </a>
+            </div>
+            <div className="h-full w-full rounded-lg bg-gray-400"></div>
+          </div>
+
+          {/*Edukasi*/}
+          <div className="flex h-[40rem] w-full flex-col items-center justify-between py-8 px-0 lg:w-1/2 lg:py-0 lg:px-8">
+            <div className="items-top flex w-full flex-row justify-between">
+              <h1 className="mb-8 text-2xl font-bold">Education</h1>
+              <a
+                href="/education"
+                className="text-xl"
+              >
+                See All
+              </a>
+            </div>
+            <div className="h-full w-full rounded-lg bg-gray-400"></div>
+          </div>
+
+          {/*Promo*/}
+          <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
+            <div className="h-full w-full rounded-lg bg-gray-400"></div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </main>
+  );
 }
