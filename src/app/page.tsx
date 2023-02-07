@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import Image from "next/image";
 
@@ -39,6 +40,7 @@ export default function Page() {
       <div className="h-screen w-screen bg-yellow-500" id="about"></div>
       <div className="h-screen w-screen bg-green-500" id="market"></div>
       <div className="h-screen w-screen bg-blue-500" id="map"></div>
+      <Footer />
     </main>
   );
 }
