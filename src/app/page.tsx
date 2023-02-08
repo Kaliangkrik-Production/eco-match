@@ -30,7 +30,7 @@ export default function Page() {
         </div>
         <div className="hidden h-full items-center justify-center md:visible md:flex md:w-1/2">
           <Image
-            src="https://cdn.discordapp.com/attachments/1071765184126914680/1072021539458916412/landing.jpeg"
+            src="https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/landing.jpeg"
             alt="illustrasi"
             width={1200}
             height={1000}
@@ -40,10 +40,7 @@ export default function Page() {
       <div className="h-auto min-h-screen p-24">
         <div className="items-top flex flex-row justify-between">
           <h1 className="mb-8 text-2xl font-bold">Popular Market</h1>
-          <a
-            href="/market"
-            className="text-xl"
-          >
+          <a href="/market" className="text-xl">
             See All
           </a>
         </div>
@@ -61,10 +58,7 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Categories</h1>
-              <a
-                href="/categories"
-                className="text-xl"
-              >
+              <a href="/categories" className="text-xl">
                 See All
               </a>
             </div>
@@ -75,10 +69,7 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between py-8 px-0 lg:w-1/2 lg:py-0 lg:px-8">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Education</h1>
-              <a
-                href="/education"
-                className="text-xl"
-              >
+              <a href="/education" className="text-xl">
                 See All
               </a>
             </div>

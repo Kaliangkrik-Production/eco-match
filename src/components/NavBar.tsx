@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function NavBar() {
   return (
-    <div className="fixed flex h-16 w-screen flex-row items-center justify-between gap-4 font-extrabold backdrop-blur-lg">
+    <div className="flex h-16 w-screen flex-row items-center justify-between gap-4 font-extrabold backdrop-blur-lg">
       <div className="ml-12 flex flex-row items-center justify-between gap-8">
         <a href="/" className="h-6 w-24">
           <Image
-            src="https://cdn.discordapp.com/attachments/1071765184126914680/1071765219652665404/EcoMatch.png"
+            src="https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/EcoMatch.png"
             alt="logo"
             width={192}
             height={64}
