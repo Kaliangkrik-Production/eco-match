@@ -82,18 +82,6 @@ export default function Page() {
                       <label htmlFor="female">Female</label>
                     </div>
                   </li>
-                  <li>
-                    <div className="flex flex-row gap-2">
-                      <input
-                        id="none"
-                        type="radio"
-                        value=""
-                        name="gender-radio"
-                        className="h-4 w-4"
-                      />
-                      <label htmlFor="none">None</label>
-                    </div>
-                  </li>
                 </ul>
               </div>
             </div>
