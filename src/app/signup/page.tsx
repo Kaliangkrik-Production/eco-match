@@ -1,13 +1,15 @@
 "use client";
 
 import { useSupabase } from "@/components/supabase-provider";
-import React, { useState } from 'react';
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Signup() {
   const { supabase } = useSupabase();
-  const md5 = require("md5");
   const [tosAgreed, setTosAgreed] = useState(false);
-  const md5 = require('md5');
+  const md5 = require("md5");
+  const router = useRouter();
+
   const handleSignup = async (event: any) => {
     event.preventDefault();
     try {
@@ -23,8 +25,7 @@ export default function Signup() {
         console.log("Please confirm your password");
         throw new Error("Please confirm your password");
       }
-      if (event.target.password.value != event.target.confirmPassword.value)
-      {
+      if (event.target.password.value != event.target.confirmPassword.value) {
         console.log("Password and confirm password do not match");
         throw new Error("Password and confirm password do not match");
       }
@@ -37,6 +38,7 @@ export default function Signup() {
         password: md5(event.target.password.value),
       });
       //redirect ke login page
+      router.push("/login");
     } catch {
       //kasih alert klo error
     }

@@ -16,8 +16,8 @@ export default function Signin() {
       });
       const session = supabase.auth.getUser();
       console.log(session);
+      router.push("/home");
     } catch {}
-    router.push("/home");
   };
 
   return (
