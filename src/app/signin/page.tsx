@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Signin() {
   return (
-    <main className="h-screen w-screen bg-[url('https://cdn.discordapp.com/attachments/1071765184126914680/1072021538938814594/Sign-In.png')] bg-cover bg-right">
+    <main className="h-screen w-screen bg-[url('https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/Sign-In.png')] bg-cover bg-right">
       <div className="flex h-screen w-full flex-col items-center justify-center gap-24 rounded-r-[2rem] bg-white lg:w-1/2">
         <h1 className="text-6xl font-bold">Sign In</h1>
         <div className="flex w-3/4 flex-col gap-5 text-xl font-semibold">

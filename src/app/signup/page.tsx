@@ -1,6 +1,6 @@
 export default function Signup() {
   return (
-    <main className="flex h-screen w-screen items-center justify-end bg-[url('https://cdn.discordapp.com/attachments/1071765184126914680/1072021539211464714/Sign-Up.png')] bg-cover bg-left">
+    <main className="flex h-screen w-screen items-center justify-end bg-[url('https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/Sign-Up.png')] bg-cover bg-left">
       <div className="flex h-screen w-full flex-col items-center justify-center gap-24 rounded-l-[2rem] bg-white lg:w-1/2">
         <h1 className="text-5xl font-bold">Sign Up</h1>
         <div className="flex w-3/4 flex-col gap-5 text-xl font-semibold">

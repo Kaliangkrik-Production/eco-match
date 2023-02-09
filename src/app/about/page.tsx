@@ -5,9 +5,9 @@ export default function Page() {
   return (
     <main>
       <NavBar />
-      <div className="flex h-screen w-screen flex-col items-center justify-center gap-12 bg-[url('https://cdn.discordapp.com/attachments/1071765184126914680/1072658133006159992/Asset-About3.png')]  bg-cover bg-bottom px-48">
+      <div className="flex h-screen w-screen flex-col items-center justify-center gap-12 bg-[url('https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/Asset-About3.png')]  bg-cover bg-bottom px-48">
         <Image
-          src="https://cdn.discordapp.com/attachments/1071765184126914680/1072656281401294969/Pict-About.png"
+          src="https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/Pict-About.png"
           alt="illustrasi"
           width={600}
           height={500}
