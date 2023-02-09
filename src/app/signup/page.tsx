@@ -1,21 +1,42 @@
+"use client";
+
+import { useSupabase } from "@/components/supabase-provider";
 export default function Signup() {
+  const { supabase } = useSupabase();
+  const handleSignup = async (event: any) => {
+    event.preventDefault();
+    try {
+      supabase.auth.signUp({
+        email: event.target.email.value,
+        password: event.target.password.value,
+      });
+      //redirect ke login page
+    } catch {
+      //kasih alert klo error
+    }
+  };
   return (
     <main className="flex h-screen w-screen items-center justify-end bg-[url('https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/Sign-Up.png')] bg-cover bg-left">
       <div className="flex h-screen w-full flex-col items-center justify-center gap-24 rounded-l-[2rem] bg-white lg:w-1/2">
         <h1 className="text-5xl font-bold">Sign Up</h1>
-        <div className="flex w-3/4 flex-col gap-5 text-xl font-semibold">
+        <form
+          onSubmit={handleSignup}
+          className="flex w-3/4 flex-col gap-5 text-xl font-semibold"
+        >
           <label>Email</label>
           <input
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
             type="email"
             placeholder="Email"
+            id="email"
           />
 
           <label>Username</label>
           <input
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-            type="email"
+            type="text"
             placeholder="Username"
+            id="username"
           />
 
           <label className="">Password</label>
@@ -23,6 +44,7 @@ export default function Signup() {
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
             type="password"
             placeholder="Password"
+            id="password"
           />
 
           <label className="">Confirm Password</label>
@@ -39,13 +61,22 @@ export default function Signup() {
               value="agreeTOS"
               name="agreeTOS"
             />
-            <label htmlFor="agreeTOS" className="text-sm">
+            <label
+              htmlFor="agreeTOS"
+              className="text-sm"
+            >
               By signing up, you agree to the{" "}
-              <a href="/terms" className="text-[#FE7968] hover:underline">
+              <a
+                href="/terms"
+                className="text-[#FE7968] hover:underline"
+              >
                 Terms of Service
               </a>{" "}
               and{" "}
-              <a href="/privacy" className="text-[#FE7968] hover:underline">
+              <a
+                href="/privacy"
+                className="text-[#FE7968] hover:underline"
+              >
                 Privacy Policy
               </a>
             </label>
@@ -65,7 +96,7 @@ export default function Signup() {
               Sign In
             </a>
           </label>
-        </div>
+        </form>
       </div>
     </main>
   );
