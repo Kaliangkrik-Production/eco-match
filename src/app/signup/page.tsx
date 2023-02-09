@@ -11,6 +11,18 @@ export default function Signup() {
   const handleSignup = async (event: any) => {
     event.preventDefault();
     try {
+      if (event.target.email.value == "") {
+        console.log("Please enter your email");
+        throw new Error("Please enter your email");
+      }
+      if (event.target.password.value == "") {
+        console.log("Please enter your password");
+        throw new Error("Please enter your password");
+      }
+      if (event.target.confirmPassword.value == "") {
+        console.log("Please confirm your password");
+        throw new Error("Please confirm your password");
+      }
       if (event.target.password.value != event.target.confirmPassword.value) {
         console.log("Password and confirm password do not match");
         throw new Error("Password and confirm password do not match");
