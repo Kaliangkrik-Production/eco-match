@@ -5,14 +5,32 @@ import React, { useState } from 'react';
 
 export default function Signup() {
   const { supabase } = useSupabase();
+  const md5 = require("md5");
+  const [tosAgreed, setTosAgreed] = useState(false);
   const md5 = require('md5');
   const handleSignup = async (event: any) => {
     event.preventDefault();
     try {
+      if (event.target.email.value == "") {
+        console.log("Please enter your email");
+        throw new Error("Please enter your email");
+      }
+      if (event.target.password.value == "") {
+        console.log("Please enter your password");
+        throw new Error("Please enter your password");
+      }
+      if (event.target.confirmPassword.value == "") {
+        console.log("Please confirm your password");
+        throw new Error("Please confirm your password");
+      }
       if (event.target.password.value != event.target.confirmPassword.value)
       {
         console.log("Password and confirm password do not match");
         throw new Error("Password and confirm password do not match");
+      }
+      if (!tosAgreed) {
+        console.log("Please agree to the terms of service");
+        throw new Error("Please agree to the terms of service");
       }
       supabase.auth.signUp({
         email: event.target.email.value,
@@ -69,6 +87,8 @@ export default function Signup() {
               id="agreeTOS"
               value="agreeTOS"
               name="agreeTOS"
+              checked={tosAgreed}
+              onChange={(e) => setTosAgreed(e.target.checked)}
             />
             <label
               htmlFor="agreeTOS"
