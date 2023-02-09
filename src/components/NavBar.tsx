@@ -42,7 +42,7 @@ export default function NavBar() {
         <a href="/market">MARKET</a>
         <a href="/map">MAP</a>
       </div>
-      {user.user == null ? userGaAda() : userAda()}
+      {user?.user == null ? userGaAda() : userAda()}
     </div>
   );
 }
