@@ -1,16 +1,16 @@
 "use client";
 
 import { useSupabase } from "@/components/supabase-provider";
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Signup() {
   const { supabase } = useSupabase();
-  const md5 = require('md5');
+  const md5 = require("md5");
   const handleSignup = async (event: any) => {
     event.preventDefault();
     try {
-      if (event.target.password.value != event.target.confirmPassword.value)
-      {
+      if (event.target.password.value != event.target.confirmPassword.value) {
         console.log("Password and confirm password do not match");
         throw new Error("Password and confirm password do not match");
       }
@@ -18,7 +18,9 @@ export default function Signup() {
         email: event.target.email.value,
         password: md5(event.target.password.value),
       });
-      //redirect ke login page
+      //redirect ke login
+      const router = useRouter();
+      router.push("/signin");
     } catch {
       //kasih alert klo error
     }
@@ -70,22 +72,13 @@ export default function Signup() {
               value="agreeTOS"
               name="agreeTOS"
             />
-            <label
-              htmlFor="agreeTOS"
-              className="text-sm"
-            >
+            <label htmlFor="agreeTOS" className="text-sm">
               By signing up, you agree to the{" "}
-              <a
-                href="/terms"
-                className="text-[#FE7968] hover:underline"
-              >
+              <a href="/terms" className="text-[#FE7968] hover:underline">
                 Terms of Service
               </a>{" "}
               and{" "}
-              <a
-                href="/privacy"
-                className="text-[#FE7968] hover:underline"
-              >
+              <a href="/privacy" className="text-[#FE7968] hover:underline">
                 Privacy Policy
               </a>
             </label>
