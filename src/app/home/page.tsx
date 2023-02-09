@@ -1,10 +1,19 @@
+"use client";
+
 import Footer from "@/components/Footer";
 import NavbarAfterLogin from "@/components/NavbarAfterLogin";
+import { useSupabase } from "@/components/supabase-provider";
 
 export default function Home() {
+  const { supabase } = useSupabase();
+  const session = supabase.auth.getUser();
+  const log = () => {
+    console.log(session);
+  };
   return (
     <main>
       <NavbarAfterLogin />
+      <button onClick={log}>adsfasdfsaf</button>
       <div className="h-auto min-h-screen p-24">
         <div className="flex items-center justify-center">
           <input
