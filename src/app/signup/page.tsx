@@ -1,14 +1,22 @@
 "use client";
 
 import { useSupabase } from "@/components/supabase-provider";
+import React, { useState } from 'react';
+
 export default function Signup() {
   const { supabase } = useSupabase();
+  const md5 = require('md5');
   const handleSignup = async (event: any) => {
     event.preventDefault();
     try {
+      if (event.target.password.value != event.target.confirmPassword.value)
+      {
+        console.log("Password and confirm password do not match");
+        throw new Error("Password and confirm password do not match");
+      }
       supabase.auth.signUp({
         email: event.target.email.value,
-        password: event.target.password.value,
+        password: md5(event.target.password.value),
       });
       //redirect ke login page
     } catch {
@@ -52,6 +60,7 @@ export default function Signup() {
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
             type="password"
             placeholder="Confirm Password"
+            id="confirmPassword"
           />
           <div className="flex flex-auto flex-row">
             <input
