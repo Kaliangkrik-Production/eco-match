@@ -38,7 +38,7 @@ export default function Signup() {
         password: md5(event.target.password.value),
       });
       //redirect ke login page
-      router.push("/login");
+      router.push("/signedup");
     } catch {
       //kasih alert klo error
     }
