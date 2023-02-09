@@ -8,13 +8,13 @@ export default function Page() {
       <NavBar />
       <div className="mb-10 flex h-full w-full flex-col items-center justify-center bg-white">
         <h1 className="mb-5 mt-16 text-4xl font-bold">User Profile</h1>
-        <div className="mb-10 flex h-[79rem] w-[90%] flex-col items-center justify-center rounded-xl pb-10 shadow-2xl shadow-black">
+        <div className="mb-10 flex h-[70rem] w-[90%] flex-col items-center justify-center rounded-xl pb-10 shadow-2xl shadow-black">
           <div className="flex h-[30%] w-full flex-col items-center justify-center">
             <div className="flex h-[60%] w-full flex-row items-center justify-center rounded-t-xl bg-red-400" />
             <div className="relative bottom-[20%] h-20 w-20 rounded-full bg-blue-400" />
           </div>
-          <div className="mt-10 grid h-[65rem] w-[95%] grid-cols-2 gap-12 rounded-md bg-teal-500 p-8">
-            <div className="flex flex-col">
+          <div className="mt-10 grid h-[65rem] w-[95%] grid-cols-6 gap-12 rounded-md bg-teal-500 p-8">
+            <div className="flex flex-col col-span-3">
               <label className="text-l mb-5 font-bold">First Name</label>
               <input
                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
@@ -22,21 +22,21 @@ export default function Page() {
                 type="text"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-3">
               <label className="text-l mb-5 font-bold">Last Name</label>
               <input
                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Nama"
               />
             </div>
-            <div className="col-span-2 flex flex-col">
+            <div className="col-span-6 flex flex-col">
               <label className="text-l mb-5 font-bold">Email</label>
               <input
                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Email"
               />
             </div>
-            <div className="col-span-2 flex flex-col">
+            <div className="col-span-6 flex flex-col">
               {/* DOB */}
               <label className="text-l mb-5 font-bold">Date of Birth</label>
               <input
@@ -44,7 +44,7 @@ export default function Page() {
                 placeholder="Tanggal Lahir"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-4">
               {/* Phone Number */}
               <label className="text-l mb-5 font-bold">Phone Number</label>
               <input
@@ -53,7 +53,7 @@ export default function Page() {
                 id="phone"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2">
               {/* Gender */}
               <label className="text-l mb-5 font-bold">Gender</label>
               <div className="flex h-10 flex-col items-center justify-center rounded-xl border border-gray-500">
@@ -85,7 +85,7 @@ export default function Page() {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col col-span-2">
+            <div className="flex flex-col col-span-6">
               <label className="text-l mb-5 font-bold">Address</label>
               <input
                   className="h-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
@@ -93,7 +93,7 @@ export default function Page() {
                   id="address"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2">
               <label className="text-l mb-5 font-bold">Province</label>
               <input
                   className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
@@ -101,7 +101,7 @@ export default function Page() {
                   id="provinsi"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2">
               <label className="text-l mb-5 font-bold">City</label>
               <input
                   className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
@@ -109,7 +109,7 @@ export default function Page() {
                   id="city"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2">
               <label className="text-l mb-5 font-bold">Zipcode</label>
               <input
                   className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
