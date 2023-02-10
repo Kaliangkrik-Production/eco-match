@@ -7,8 +7,9 @@ const nextConfig = {
     domains: [
       "raw.githubusercontent.com",
       "cdn.discordapp.com",
-    ]
-  }
-}
+      "lh5.googleusercontent.com",
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

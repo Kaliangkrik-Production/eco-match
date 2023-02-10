@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
+import MarketBox from "@/components/MarketBox";
 import NavBar from "@/components/NavBar";
 import { useSupabase } from "@/components/supabase-provider";
 import Image from "next/image";
@@ -38,17 +39,20 @@ export default function Page() {
             See All
           </a>
         </div>
-        <div className="flex scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
-          <div className="aspect-video h-64 bg-black"></div>
-          <div className="aspect-video h-64 bg-black"></div>
-          <div className="aspect-video h-64 bg-black"></div>
-          <div className="aspect-video h-64 bg-black"></div>
-          <div className="aspect-video h-64 bg-black"></div>
-          <div className="aspect-video h-64 bg-black"></div>
-          <div className="aspect-video h-64 bg-black"></div>
+        <div className="flex h-auto scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
+          <MarketBox />
+          <MarketBox />
+          <MarketBox />
+          <MarketBox />
+          <MarketBox />
+          <MarketBox />
+          <MarketBox />
+          <MarketBox />
+          <MarketBox />
         </div>
+
+        {/*Kategori*/}
         <div className="flex h-auto w-full flex-col py-24 lg:flex-row">
-          {/*Kategori*/}
           <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Categories</h1>
@@ -59,7 +63,17 @@ export default function Page() {
                 See All
               </a>
             </div>
-            <div className="h-full w-full rounded-lg bg-gray-400"></div>
+            <div className="flex h-full w-full flex-col items-center justify-start gap-4 rounded-lg border-4 border-black">
+              <div className="flex h-16 w-full items-center justify-center">
+                <h1 className="text-xl font-bold underline">kategori1</h1>
+              </div>
+              <div className="flex h-16 w-full items-center justify-center">
+                <h1 className="text-xl font-bold underline">kategori2</h1>
+              </div>
+              <div className="flex h-16 w-full items-center justify-center">
+                <h1 className="text-xl font-bold underline">kategori3</h1>
+              </div>
+            </div>
           </div>
 
           {/*Edukasi*/}
@@ -73,12 +87,28 @@ export default function Page() {
                 See All
               </a>
             </div>
-            <div className="h-full w-full rounded-lg bg-gray-400"></div>
+            <div className="flex h-full w-full flex-col items-center justify-start gap-4 rounded-lg border-4 border-black">
+              <div className="flex h-16 w-full items-center justify-center">
+                <h1 className="text-xl font-bold underline">Judul edukasi</h1>
+              </div>
+              <div className="flex h-16 w-full items-center justify-center">
+                <h1 className="text-xl font-bold underline">Judul edukasi</h1>
+              </div>
+              <div className="flex h-16 w-full items-center justify-center">
+                <h1 className="text-xl font-bold underline">Judul edukasi</h1>
+              </div>
+            </div>{" "}
           </div>
 
           {/*Promo*/}
           <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
-            <div className="h-full w-full rounded-lg bg-gray-400"></div>
+            <div
+              className="h-full w-full rounded-lg bg-gray-400 "
+              style={{
+                backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
+                backgroundSize: "cover",
+              }}
+            ></div>
           </div>
         </div>
       </div>

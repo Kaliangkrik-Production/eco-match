@@ -18,7 +18,7 @@ export default async function RootLayout({ children }: any) {
   } = await supabase.auth.getSession();
 
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <head />
       <body className={inter.className}>
         <SupabaseProvider>
