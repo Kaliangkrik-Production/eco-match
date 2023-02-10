@@ -3,16 +3,39 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import React, { ReactNode, useEffect, useState, Component } from "react";
 import AccountDetailTextBox from "./component/AccountDetailTextBox";
+import CitySelect from "./component/CitySelect";
 import ProvinceSelect from "./component/ProvinceSelect";
 
-class Account extends Component {
+interface AccountState {
+  province: any;
+  city: any;
+  kecamatan: any;
+  kelurahan: any;
+  user: any;
+}
+
+class Account extends Component<{}, AccountState> {
   constructor(props: any) {
     super(props);
     this.state = {
+      province: {},
+      city: {},
+      kecamatan: {},
+      kelurahan: {},
       user: {},
     };
   }
+
+  handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    this.setState({ province: event.target.value });
+  };
+
+  handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    this.setState({ city: event.target.value });
+  };
+
   render(): ReactNode {
+    const { province, city } = this.state;
     return (
       <main>
         <NavBar />
@@ -95,7 +118,7 @@ class Account extends Component {
                 />
               </div>
               <div className="col-span-2 flex flex-col">
-                <ProvinceSelect />
+                <ProvinceSelect onChange={this.handleProvinceChange} />
                 {/* <label className="text-l mb-5 font-bold">Province</label>
                 <input
                   className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
@@ -104,12 +127,16 @@ class Account extends Component {
                 /> */}
               </div>
               <div className="col-span-2 flex flex-col">
-                <label className="text-l mb-5 font-bold">City</label>
+                <CitySelect
+                  onChange={this.handleCityChange}
+                  provinceId={province}
+                />
+                {/* <label className="text-l mb-5 font-bold">City</label>
                 <input
                   className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Kota"
                   id="city"
-                />
+                /> */}
               </div>
               <div className="col-span-2 flex flex-col">
                 <label className="text-l mb-5 font-bold">Zipcode</label>
