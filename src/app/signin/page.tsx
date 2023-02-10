@@ -59,7 +59,7 @@ export default function Signin() {
             Login
           </button>
           <label>
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <a
               href="/signup"
               className="font-bold text-[#FE7968] hover:underline"
