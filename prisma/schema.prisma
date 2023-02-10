@@ -11,21 +11,33 @@ datasource db {
 }
 
 model User {
-  userId      Int      @id @default(autoincrement()) @map("user_id")
-  avatarUrl   String?  @map("avatar_url")
-  firstName   String   @map("first_name") @db.VarChar(128) // first time created will be filled with username value
-  lastName    String?  @map("last_name") @db.VarChar(128)
-  gender      Gender?
-  address     String?
-  email       String   @unique @db.VarChar(64)
-  username    String   @unique @db.VarChar(32)
-  password    String // hashed
-  phoneNumber String?  @unique @db.VarChar(16)
-  Review      Review[]
-  Store       Store?
+  userId   Int      @id @default(autoincrement()) @map("user_id")
+  email    String   @unique @db.VarChar(64)
+  username String   @unique @db.VarChar(32)
+  password String // hashed
+  Review   Review[]
+  Store    Store?
+  Account  Account?
+
+  @@map("users")
+}
+
+model Account {
+  userId         Int       @id @unique @map("user_id")
+  accountCreated DateTime  @default(now()) @map("account_created")
+  accountUpdated DateTime? @map("account_updated")
+  avatarUrl      String?   @map("avatar_url")
+  firstName      String    @map("first_name") @db.VarChar(128) // first time created will be filled with username value
+  lastName       String?   @map("last_name") @db.VarChar(128)
+  gender         Gender?
+  address        String?
+  phoneNumber    String?   @unique @db.VarChar(16)
+  lastLogin      DateTime? @map("last_login")
+  lastModified   DateTime? @map("last_modified")
+  User           User      @relation(fields: [userId], references: [userId])
 
   @@unique(fields: [firstName, lastName], name: "full_name_idx")
-  @@map("users")
+  @@map("accounts")
 }
 
 model Category {
