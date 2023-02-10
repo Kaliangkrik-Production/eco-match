@@ -1,9 +1,9 @@
-import NavbarAfterLogin from "@/components/NavbarAfterLogin";
+import NavBar from "@/components/NavBar";
 
 export default function Page() {
   return (
     <main>
-      <NavbarAfterLogin />
+      <NavBar />
       <div className="h-auto min-h-screen p-24">
         <div className="py-24">
           <div className="flex scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap rounded-lg">

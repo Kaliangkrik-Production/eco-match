@@ -1,15 +1,11 @@
 //dynamic routing
 //Menampilkan market sesuai route di browser
 
-import { useRouter } from "next/router";
-
-export default function Page() {
-  const router = useRouter()
-  const marketId = router.query.marketId
+export default function Page({params}: any) {
 
   return (
     <div>
-      <div>{ marketId }</div>
+      <div>{ params.marketId }</div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useSupabase } from "./supabase-provider";
 
-let nama:string | undefined;
+let nama: string | undefined;
 
 export default function NavBar() {
   const { supabase } = useSupabase();
@@ -37,7 +37,7 @@ export default function NavBar() {
           />
         </a>
         {/* HOME, ABOUT, MARKET, MAP */}
-        <a href="/home">HOME</a>
+        <a href="/">HOME</a>
         <a href="/about">ABOUT</a>
         <a href="/market">MARKET</a>
         <a href="/map">MAP</a>
@@ -48,7 +48,6 @@ export default function NavBar() {
 }
 
 function userAda() {
-  
   return (
     <div className="mr-12 flex flex-row items-center justify-center gap-4">
       <svg
