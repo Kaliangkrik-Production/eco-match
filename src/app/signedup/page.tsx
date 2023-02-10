@@ -1,6 +1,5 @@
 "use client";
 import React, { Component } from "react";
-import { useSupabase } from "@/components/supabase-provider";
 
 class SignedUp extends Component {
   constructor(props: any) {
@@ -16,4 +15,6 @@ class SignedUp extends Component {
     );
   }
 }
-export default SignedUp;
+export default function Page() {
+  return <SignedUp />;
+}

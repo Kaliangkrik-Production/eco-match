@@ -19,41 +19,38 @@ export default function Page() {
       setUser(data);
       email = data.user?.email;
       uuId = data.user?.id;
-      console.log("Home: " + email);
     } catch {}
   }
-  // handle user change
-  async function fetchUserDb() {
-    try {
-      await fetchUser();
-      console.log(user?.email);
-      const { data, error } = await supabase
-        .from("users")
-        .select("*")
-        .eq("email", email);
-      setUserDb(data);
-      if (error) {
-        console.log("error", error.message);
-      } else {
-        console.log("data", data);
-      }
-      if (data?.length == 0) {
-        const { data, error } = await supabase.from("users").insert([
-          {
-            email: email,
-            uuId: uuId,
-          },
-        ]);
+  useEffect(() => {
+    async function fetchUserDb() {
+      try {
+        await fetchUser();
+        console.log(user?.email);
+        const { data, error } = await supabase
+          .from("users")
+          .select("*")
+          .eq("email", email);
+        setUserDb(data);
         if (error) {
           console.log("error", error.message);
         } else {
           console.log("data", data);
         }
-      }
-    } catch {}
-  }
-
-  useEffect(() => {
+        if (data?.length == 0) {
+          const { data, error } = await supabase.from("users").insert([
+            {
+              email: email,
+              uuId: uuId,
+            },
+          ]);
+          if (error) {
+            console.log("error", error.message);
+          } else {
+            console.log("data", data);
+          }
+        }
+      } catch {}
+    }
     fetchUserDb();
   }, []);
   //i am here
