@@ -21,7 +21,7 @@ class Account extends Component {
               <div className="col-span-3 flex flex-col">
                 <label className="text-l mb-5 font-bold">First Name</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 "
                   placeholder="Nama"
                   type="text"
                 />
@@ -29,14 +29,14 @@ class Account extends Component {
               <div className="col-span-3 flex flex-col">
                 <label className="text-l mb-5 font-bold">Last Name</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Nama"
                 />
               </div>
               <div className="col-span-6 flex flex-col">
                 <label className="text-l mb-5 font-bold">Email</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Email"
                 />
               </div>
@@ -44,7 +44,7 @@ class Account extends Component {
                 {/* DOB */}
                 <label className="text-l mb-5 font-bold">Date of Birth</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Tanggal Lahir"
                 />
               </div>
@@ -52,7 +52,7 @@ class Account extends Component {
                 {/* Phone Number */}
                 <label className="text-l mb-5 font-bold">Phone Number</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Nomor Telepon"
                   id="phone"
                 />
@@ -92,7 +92,7 @@ class Account extends Component {
               <div className="col-span-6 flex flex-col">
                 <label className="text-l mb-5 font-bold">Address</label>
                 <input
-                  className="h-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Alamat"
                   id="address"
                 />
@@ -100,7 +100,7 @@ class Account extends Component {
               <div className="col-span-2 flex flex-col">
                 <label className="text-l mb-5 font-bold">Province</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Provinsi"
                   id="province"
                 />
@@ -108,7 +108,7 @@ class Account extends Component {
               <div className="col-span-2 flex flex-col">
                 <label className="text-l mb-5 font-bold">City</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Kota"
                   id="city"
                 />
@@ -116,7 +116,7 @@ class Account extends Component {
               <div className="col-span-2 flex flex-col">
                 <label className="text-l mb-5 font-bold">Zipcode</label>
                 <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Kode Pos"
                   id="zipcode"
                 />
@@ -169,7 +169,7 @@ export default function Page() {
 //             <div className="col-span-3 flex flex-col">
 //               <label className="text-l mb-5 font-bold">First Name</label>
 //               <input
-//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 "
 //                 placeholder="Nama"
 //                 type="text"
 //               />
@@ -177,14 +177,14 @@ export default function Page() {
 //             <div className="col-span-3 flex flex-col">
 //               <label className="text-l mb-5 font-bold">Last Name</label>
 //               <input
-//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
 //                 placeholder="Nama"
 //               />
 //             </div>
 //             <div className="col-span-6 flex flex-col">
 //               <label className="text-l mb-5 font-bold">Email</label>
 //               <input
-//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
 //                 placeholder="Email"
 //               />
 //             </div>
@@ -192,7 +192,7 @@ export default function Page() {
 //               {/* DOB */}
 //               <label className="text-l mb-5 font-bold">Date of Birth</label>
 //               <input
-//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
 //                 placeholder="Tanggal Lahir"
 //               />
 //             </div>
@@ -200,7 +200,7 @@ export default function Page() {
 //               {/* Phone Number */}
 //               <label className="text-l mb-5 font-bold">Phone Number</label>
 //               <input
-//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
 //                 placeholder="Nomor Telepon"
 //                 id="phone"
 //               />
@@ -240,7 +240,7 @@ export default function Page() {
 //             <div className="col-span-6 flex flex-col">
 //               <label className="text-l mb-5 font-bold">Address</label>
 //               <input
-//                 className="h-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+//                 className="h-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
 //                 placeholder="Alamat"
 //                 id="address"
 //               />
@@ -272,7 +272,7 @@ export default function Page() {
 //             <div className="col-span-2 flex flex-col">
 //               <label className="text-l mb-5 font-bold">City</label>
 //               <input
-//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
 //                 placeholder="Kota"
 //                 id="city"
 //               />
@@ -280,7 +280,7 @@ export default function Page() {
 //             <div className="col-span-2 flex flex-col">
 //               <label className="text-l mb-5 font-bold">Zipcode</label>
 //               <input
-//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+//                 className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
 //                 placeholder="Kode Pos"
 //                 id="zipcode"
 //               />
