@@ -2,7 +2,6 @@
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import React, { ReactNode, useEffect, useState, Component } from "react";
-import axios from "axios";
 import AccountDetailTextBox from "./component/AccountDetailTextBox";
 
 class Account extends Component {

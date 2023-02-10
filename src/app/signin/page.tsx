@@ -12,7 +12,11 @@ export default function Signin() {
     try {
       await supabase.auth.signInWithPassword({
         email: event.target.email.value,
-        password: md5(event.target.password.value),
+        password: md5(
+          process.env.PW_SALT +
+            event.target.password.value +
+            process.env.PW_SALT
+        ),
       });
       const session = supabase.auth.getUser();
       console.log(session);

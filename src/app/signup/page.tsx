@@ -33,10 +33,23 @@ export default function Signup() {
         console.log("Please agree to the terms of service");
         throw new Error("Please agree to the terms of service");
       }
+      if (event.target.username.value == "") {
+        console.log("Please enter your username");
+        throw new Error("Please enter your username");
+      }
       supabase.auth.signUp({
         email: event.target.email.value,
-        password: md5(event.target.password.value),
+        password: md5(
+          process.env.PW_SALT +
+            event.target.password.value +
+            process.env.PW_SALT
+        ),
       });
+      const { error }: any = await supabase.from("users").insert({
+        email: event.target.email.value,
+        username: event.target.username.value,
+      });
+
       //redirect ke login page
       router.push("/signedup");
     } catch {
@@ -92,22 +105,13 @@ export default function Signup() {
               checked={tosAgreed}
               onChange={(e) => setTosAgreed(e.target.checked)}
             />
-            <label
-              htmlFor="agreeTOS"
-              className="text-sm"
-            >
+            <label htmlFor="agreeTOS" className="text-sm">
               By signing up, you agree to the{" "}
-              <a
-                href="/terms"
-                className="text-[#FE7968] hover:underline"
-              >
+              <a href="/terms" className="text-[#FE7968] hover:underline">
                 Terms of Service
               </a>{" "}
               and{" "}
-              <a
-                href="/privacy"
-                className="text-[#FE7968] hover:underline"
-              >
+              <a href="/privacy" className="text-[#FE7968] hover:underline">
                 Privacy Policy
               </a>
             </label>

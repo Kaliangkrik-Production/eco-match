@@ -8,20 +8,50 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Page() {
-  let nama: string | undefined;
+  let email: string | undefined;
   const { supabase } = useSupabase();
   const [user, setUser] = useState<any>();
+  const [userDb, setUserDb] = useState<any>();
   async function fetchUser() {
     try {
       const { data } = await supabase.auth.getUser();
       setUser(data);
-      console.log(data.user);
-      nama = data.user?.email;
+      email = data.user?.email;
+      console.log("Home: " + email);
+    } catch {}
+  }
+  // handle user change
+  async function fetchUserDb() {
+    try {
+      await fetchUser();
+      console.log("Check if user exist in database");
+      console.log(user?.email);
+      const { data } = await supabase
+        .from("users")
+        .select("*")
+        .eq("email", email);
+      setUserDb(data);
+      console.log("Data DB: ");
+      console.log(data);
+      if (data?.length == 0) {
+        console.log("User not found in database");
+        const { data, error } = await supabase.from("users").insert([
+          {
+            email: user?.email,
+            uuId: user?.id,
+          },
+        ]);
+        if (error) {
+          console.log("error", error.message);
+        } else {
+          console.log("data", data);
+        }
+      }
     } catch {}
   }
 
   useEffect(() => {
-    fetchUser();
+    fetchUserDb();
   }, []);
   //i am here
   return (
@@ -32,10 +62,7 @@ export default function Page() {
         {user?.user == null ? beforeLogin() : afterLogin()}
         <div className="items-top flex flex-row justify-between">
           <h1 className="mb-8 text-2xl font-bold">Popular Market</h1>
-          <a
-            href="/market"
-            className="text-xl"
-          >
+          <a href="/market" className="text-xl">
             See All
           </a>
         </div>
@@ -56,10 +83,7 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Categories</h1>
-              <a
-                href="/categories"
-                className="text-xl"
-              >
+              <a href="/categories" className="text-xl">
                 See All
               </a>
             </div>
@@ -80,10 +104,7 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between py-8 px-0 lg:w-1/2 lg:py-0 lg:px-8">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Education</h1>
-              <a
-                href="/education"
-                className="text-xl"
-              >
+              <a href="/education" className="text-xl">
                 See All
               </a>
             </div>

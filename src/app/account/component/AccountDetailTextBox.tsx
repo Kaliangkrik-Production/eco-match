@@ -1,5 +1,3 @@
-import React, { Component, ReactNode } from "react";
-
 interface AccountDetailTextBoxProps {
   labelText: string;
   placeholder: string;
