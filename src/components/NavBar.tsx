@@ -9,16 +9,16 @@ let nama: string | undefined;
 export default function NavBar() {
   const { supabase } = useSupabase();
   const [user, setUser] = useState<any>();
-  async function fetchUser() {
-    try {
-      const { data } = await supabase.auth.getUser();
-      setUser(data);
-      console.log(data.user);
-      nama = data.user?.email;
-    } catch {}
-  }
 
   useEffect(() => {
+    async function fetchUser() {
+      try {
+        const { data } = await supabase.auth.getUser();
+        setUser(data);
+        console.log(data.user);
+        nama = data.user?.email;
+      } catch {}
+    }
     fetchUser();
   }, []);
 
