@@ -40,3 +40,4 @@ next-env.d.ts
 /.vscode
 /.vs
 /.idea
+/prisma/migrations
