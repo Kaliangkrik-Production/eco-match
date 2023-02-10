@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function Page() {
   let email: string | undefined;
+  let uuId: string | undefined;
   const { supabase } = useSupabase();
   const [user, setUser] = useState<any>();
   const [userDb, setUserDb] = useState<any>();
@@ -17,6 +18,7 @@ export default function Page() {
       const { data } = await supabase.auth.getUser();
       setUser(data);
       email = data.user?.email;
+      uuId = data.user?.id;
       console.log("Home: " + email);
     } catch {}
   }
@@ -24,21 +26,22 @@ export default function Page() {
   async function fetchUserDb() {
     try {
       await fetchUser();
-      console.log("Check if user exist in database");
       console.log(user?.email);
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from("users")
         .select("*")
         .eq("email", email);
       setUserDb(data);
-      console.log("Data DB: ");
-      console.log(data);
+      if (error) {
+        console.log("error", error.message);
+      } else {
+        console.log("data", data);
+      }
       if (data?.length == 0) {
-        console.log("User not found in database");
         const { data, error } = await supabase.from("users").insert([
           {
-            email: user?.email,
-            uuId: user?.id,
+            email: email,
+            uuId: uuId,
           },
         ]);
         if (error) {
