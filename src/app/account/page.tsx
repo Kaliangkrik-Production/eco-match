@@ -1,11 +1,17 @@
 "use client";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
-import { ReactNode, useEffect, useState } from "react";
-import React, { Component } from "react";
+import React, { ReactNode, useEffect, useState, Component } from "react";
 import axios from "axios";
+import AccountDetailTextBox from "./component/AccountDetailTextBox";
 
 class Account extends Component {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      user: {},
+    };
+  }
   render(): ReactNode {
     return (
       <main>
@@ -19,26 +25,19 @@ class Account extends Component {
             </div>
             <div className="mt-10 grid h-[65rem] w-[95%] grid-cols-6 gap-12 rounded-md bg-teal-500 p-8">
               <div className="col-span-3 flex flex-col">
-                <label className="text-l mb-5 font-bold">First Name</label>
-                <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 "
-                  placeholder="Nama"
-                  type="text"
+                <AccountDetailTextBox
+                  labelText="First Name"
+                  placeholder="First Name"
                 />
               </div>
               <div className="col-span-3 flex flex-col">
-                <label className="text-l mb-5 font-bold">Last Name</label>
-                <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-                  placeholder="Nama"
+                <AccountDetailTextBox
+                  labelText="Last Name"
+                  placeholder="Last Name"
                 />
               </div>
               <div className="col-span-6 flex flex-col">
-                <label className="text-l mb-5 font-bold">Email</label>
-                <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-                  placeholder="Email"
-                />
+                <AccountDetailTextBox labelText="Email" placeholder="Email" />
               </div>
               <div className="col-span-6 flex flex-col">
                 {/* DOB */}
@@ -50,11 +49,9 @@ class Account extends Component {
               </div>
               <div className="col-span-4 flex flex-col">
                 {/* Phone Number */}
-                <label className="text-l mb-5 font-bold">Phone Number</label>
-                <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-                  placeholder="Nomor Telepon"
-                  id="phone"
+                <AccountDetailTextBox
+                  labelText="Phone Number"
+                  placeholder="Phone Number"
                 />
               </div>
               <div className="col-span-2 flex flex-col">
