@@ -161,8 +161,28 @@ function afterLogin() {
         />
       </div>
       <div className="py-24">
-        <div className="flex scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap rounded-lg">
-          <div className="h-96 w-full bg-black"></div>
+        <div className="flex h-auto snap-x scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
+          <div
+            className="aspect-[40/9] h-96 snap-center bg-black"
+            style={{
+              backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+          <div
+            className="aspect-[40/9] h-96 snap-center bg-black"
+            style={{
+              backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+          <div
+            className="aspect-[40/9] h-96 snap-center bg-black"
+            style={{
+              backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
+              backgroundSize: "cover",
+            }}
+          ></div>
         </div>
       </div>
     </div>
