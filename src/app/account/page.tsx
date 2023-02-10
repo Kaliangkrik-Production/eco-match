@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import React, { ReactNode, useEffect, useState, Component } from "react";
 import AccountDetailTextBox from "./component/AccountDetailTextBox";
+import ProvinceSelect from "./component/ProvinceSelect";
 
 class Account extends Component {
   constructor(props: any) {
@@ -94,12 +95,13 @@ class Account extends Component {
                 />
               </div>
               <div className="col-span-2 flex flex-col">
-                <label className="text-l mb-5 font-bold">Province</label>
+                <ProvinceSelect />
+                {/* <label className="text-l mb-5 font-bold">Province</label>
                 <input
                   className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Provinsi"
                   id="province"
-                />
+                /> */}
               </div>
               <div className="col-span-2 flex flex-col">
                 <label className="text-l mb-5 font-bold">City</label>
