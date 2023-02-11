@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-interface Kecamatan {
-  nama: string;
-  id: number;
-}
-
-interface KecamatanSelectProps {
-  cityId: number;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-}
-
 //fetch kecamatan data from api http://dev.farizdotid.com/api/daerahindonesia/kecamatan?id_kota=3274
 //then return as dropdown list
-export default function KecamatanSelect(props: KecamatanSelectProps) {
+export default function KecamatanSelect(props: any) {
   const [kecamatan, setKecamatan] = useState([]);
   useEffect(() => {
     axios
       .get(
-        `https://dev.farizdotid.com/api/daerahindonesia/kecamatan?id_kota=${props.cityId}`
+        `https://dev.farizdotid.com/api/daerahindonesia/kecamatan?id_kota=${props.city.id}`
       )
       .then((res) => {
         setKecamatan(res.data.kecamatan);
       });
-  }, [props.cityId]);
+  }, [props.city.id]);
   return (
     <React.Fragment>
       <label className="text-l mb-5 font-bold">Kecamatan</label>
@@ -33,8 +23,8 @@ export default function KecamatanSelect(props: KecamatanSelectProps) {
         onChange={props.onChange}
       >
         <option value="">Select Kecamatan</option>
-        {kecamatan.map((kec: Kecamatan) => (
-          <option key={kec.id} value={kec.id}>
+        {kecamatan.map((kec: any) => (
+          <option key={kec.id} value={kec}>
             {kec.nama}
           </option>
         ))}

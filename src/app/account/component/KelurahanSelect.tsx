@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-interface Kelurahan {
-  nama: string;
-  id: number;
-}
-
-interface KelurahanSelectProps {
-  kecamatanId: number;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-}
-
 //fetch kelurahan data from api http://dev.farizdotid.com/api/daerahindonesia/kelurahan?id_kecamatan=3274010
 //then return as dropdown list
-export default function KelurahanSelect(props: KelurahanSelectProps) {
+export default function KelurahanSelect(props: any) {
   const [kelurahan, setKelurahan] = useState([]);
   useEffect(() => {
     axios
       .get(
-        `https://dev.farizdotid.com/api/daerahindonesia/kelurahan?id_kecamatan=${props.kecamatanId}`
+        `https://dev.farizdotid.com/api/daerahindonesia/kelurahan?id_kecamatan=${props.kecamatan.id}`
       )
       .then((res) => {
         setKelurahan(res.data.kelurahan);
       });
-  }, [props.kecamatanId]);
+  }, [props.kecamatan.id]);
   return (
     <React.Fragment>
       <label className="text-l mb-5 font-bold">Kelurahan</label>
@@ -33,8 +23,8 @@ export default function KelurahanSelect(props: KelurahanSelectProps) {
         onChange={props.onChange}
       >
         <option value="">Select Kelurahan</option>
-        {kelurahan.map((kel: Kelurahan) => (
-          <option key={kel.id} value={kel.id}>
+        {kelurahan.map((kel: any) => (
+          <option key={kel.id} value={kel}>
             {kel.nama}
           </option>
         ))}

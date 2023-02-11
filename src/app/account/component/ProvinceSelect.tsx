@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-interface Province {
-  nama: string;
-  id: number;
-}
-
-interface ProvinceSelectProps {
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-}
-
 //fetch province data from api http://dev.farizdotid.com/api/daerahindonesia/provinsi
 //then return as dropdown list
-export default function ProvinceSelect(props: ProvinceSelectProps) {
+export default function ProvinceSelect(props: any) {
   const [province, setProvince] = useState([]);
   useEffect(() => {
     axios
@@ -30,8 +21,8 @@ export default function ProvinceSelect(props: ProvinceSelectProps) {
         onChange={props.onChange}
       >
         <option value="">Select Province</option>
-        {province.map((prov: Province) => (
-          <option key={prov.id} value={prov.id}>
+        {province.map((prov: any) => (
+          <option key={prov.id} value={prov}>
             {prov.nama}
           </option>
         ))}
