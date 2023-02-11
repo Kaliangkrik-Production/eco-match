@@ -18,7 +18,7 @@ export default function CitySelect(props: CitySelectProps) {
   useEffect(() => {
     axios
       .get(
-        `http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=${props.provinceId}`
+        `https://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=${props.provinceId}`
       )
       .then((res) => {
         setCity(res.data.kota_kabupaten);

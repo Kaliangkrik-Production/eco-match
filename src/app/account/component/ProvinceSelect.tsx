@@ -16,7 +16,7 @@ export default function ProvinceSelect(props: ProvinceSelectProps) {
   const [province, setProvince] = useState([]);
   useEffect(() => {
     axios
-      .get("http://dev.farizdotid.com/api/daerahindonesia/provinsi")
+      .get("https://dev.farizdotid.com/api/daerahindonesia/provinsi")
       .then((res) => {
         setProvince(res.data.provinsi);
       });
