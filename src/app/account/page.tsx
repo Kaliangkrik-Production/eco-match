@@ -148,34 +148,6 @@ class Account extends Component<{}, AccountState> {
                     </label>
                   </div>
                 </div>
-                {/* <div className="flex h-10 flex-col items-center justify-center rounded-xl border border-gray-500">
-                  <ul className="flex flex-row items-center justify-center gap-4">
-                    <li>
-                      <div className="flex flex-row gap-2">
-                        <input
-                          id="male"
-                          type="radio"
-                          value=""
-                          name="gender-radio"
-                          className="h-4 w-4"
-                        />
-                        <label htmlFor="male">Male</label>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="flex flex-row gap-2">
-                        <input
-                          id="female"
-                          type="radio"
-                          value=""
-                          name="gender-radio"
-                          className="h-4 w-4"
-                        />
-                        <label htmlFor="female">Female</label>
-                      </div>
-                    </li>
-                  </ul>
-                </div> */}
               </div>
               <div className="col-span-6 flex flex-col">
                 <label className="text-l mb-5 font-bold">Address</label>
@@ -187,24 +159,12 @@ class Account extends Component<{}, AccountState> {
               </div>
               <div className="col-span-3 flex flex-col">
                 <ProvinceSelect onChange={this.handleProvinceChange} />
-                {/* <label className="text-l mb-5 font-bold">Province</label>
-                <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-                  placeholder="Provinsi"
-                  id="province"
-                /> */}
               </div>
               <div className="col-span-3 flex flex-col">
                 <CitySelect
                   onChange={this.handleCityChange}
                   provinceId={province}
                 />
-                {/* <label className="text-l mb-5 font-bold">City</label>
-                <input
-                  className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-                  placeholder="Kota"
-                  id="city"
-                /> */}
               </div>
               <div className="col-span-2 flex flex-col">
                 <KecamatanSelect
