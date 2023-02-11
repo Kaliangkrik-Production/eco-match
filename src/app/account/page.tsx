@@ -55,7 +55,7 @@ class Account extends Component<{}, AccountState> {
     return (
       <main>
         <NavBar />
-        <div className="mb-10 flex h-full w-full flex-col items-center justify-center bg-white">
+        <div className="mb-10 flex h-full w-full flex-col items-center justify-center bg-white ">
           <h1 className="mb-5 mt-16 text-4xl font-bold">User Profile</h1>
           <div className="mb-10 flex h-[85rem] w-[90%] flex-col items-center justify-center rounded-xl pb-10 shadow-2xl shadow-black">
             <div className="flex h-[30%] w-full flex-col items-center justify-center">
@@ -116,7 +116,39 @@ class Account extends Component<{}, AccountState> {
               <div className="col-span-2 flex flex-col">
                 {/* Gender */}
                 <label className="text-l mb-5 font-bold">Gender</label>
-                <div className="flex h-10 flex-col items-center justify-center rounded-xl border border-gray-500">
+                <div className="h-15 grid grid-cols-2 rounded-xl bg-gray-100 p-2">
+                  <div>
+                    <input
+                      type="radio"
+                      className="peer hidden"
+                      id="male"
+                      name="gender"
+                      checked
+                    />
+                    <label
+                      htmlFor="male"
+                      className="block cursor-pointer select-none rounded-xl p-2 text-center hover:underline peer-checked:bg-teal-500 peer-checked:font-bold peer-checked:text-white"
+                    >
+                      Male
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      className="peer hidden"
+                      id="female"
+                      name="gender"
+                      checked
+                    />
+                    <label
+                      htmlFor="female"
+                      className="block cursor-pointer select-none rounded-xl p-2 text-center hover:underline peer-checked:bg-teal-500 peer-checked:font-bold peer-checked:text-white"
+                    >
+                      Female
+                    </label>
+                  </div>
+                </div>
+                {/* <div className="flex h-10 flex-col items-center justify-center rounded-xl border border-gray-500">
                   <ul className="flex flex-row items-center justify-center gap-4">
                     <li>
                       <div className="flex flex-row gap-2">
@@ -143,7 +175,7 @@ class Account extends Component<{}, AccountState> {
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </div>
               <div className="col-span-6 flex flex-col">
                 <label className="text-l mb-5 font-bold">Address</label>
@@ -196,14 +228,14 @@ class Account extends Component<{}, AccountState> {
               </div>
               <div className="col-span-1 col-start-5 flex flex-col">
                 <button
-                  className="h-10 w-32 rounded-lg bg-red-400 font-bold text-white hover:bg-red-700"
+                  className="h-10 w-32 rounded-lg bg-red-400 font-bold text-white  hover:bg-red-700"
                   onClick={this.handleSaveButtonClicked}
                 >
                   Save
                 </button>
               </div>
               <div className="col-span-1 col-start-6 flex flex-col">
-                <button className="h-10 w-32 rounded-lg bg-white font-bold text-black hover:bg-gray-300">
+                <button className="h-10 w-32 rounded-lg bg-white  font-bold text-black hover:bg-gray-300">
                   Cancel
                 </button>
               </div>
@@ -244,7 +276,7 @@ export default function Page() {
 //   return (
 //     <main>
 //       <NavBar />
-//       <div className="mb-10 flex h-full w-full flex-col items-center justify-center bg-white">
+//       <div className="mb-10 flex h-full w-full flex-col items-center justify-center bg-white ">
 //         <h1 className="mb-5 mt-16 text-4xl font-bold">User Profile</h1>
 //         <div className="mb-10 flex h-[70rem] w-[90%] flex-col items-center justify-center rounded-xl pb-10 shadow-2xl shadow-black">
 //           <div className="flex h-[30%] w-full flex-col items-center justify-center">
@@ -335,13 +367,13 @@ export default function Page() {
 //               <label className="text-l mb-5 font-bold">Province</label>
 //               <div className="relative">
 //                 <button
-//                   className="focus:shadow-outline block appearance-none rounded-full border border-gray-300 bg-white py-2 px-4 font-medium leading-normal text-gray-800 focus:outline-none"
+//                   className="focus:shadow-outline block appearance-none rounded-full border border-gray-300 bg-white  py-2 px-4 font-medium leading-normal text-gray-800 focus:outline-none"
 //                   onClick={handleToggle}
 //                 >
 //                   {selectedProvince || "Select Province"}
 //                 </button>
 //                 {isOpen && (
-//                   <div className="absolute right-0 z-30 w-48 rounded-lg bg-white py-2 shadow-xl">
+//                   <div className="absolute right-0 z-30 w-48 rounded-lg bg-white  py-2 shadow-xl">
 //                     {provinces.map((province) => (
 //                       <button
 //                         key={province.id}
