@@ -1,6 +1,7 @@
 "use client";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
+import TheFeedNotification from "@/components/TheFeedNotification";
 import React, { ReactNode, Component } from "react";
 import AccountDetailTextBox from "./component/AccountDetailTextBox";
 import CitySelect from "./component/CitySelect";
@@ -28,6 +29,11 @@ class Account extends Component<{}, AccountState> {
     };
   }
 
+  //handle save button clicked
+  handleSaveButtonClicked = () => {
+    console.log("save button clicked");
+  };
+
   handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     this.setState({ province: event.target.value });
   };
@@ -53,7 +59,27 @@ class Account extends Component<{}, AccountState> {
           <h1 className="mb-5 mt-16 text-4xl font-bold">User Profile</h1>
           <div className="mb-10 flex h-[85rem] w-[90%] flex-col items-center justify-center rounded-xl pb-10 shadow-2xl shadow-black">
             <div className="flex h-[30%] w-full flex-col items-center justify-center">
-              <div className="flex h-[60%] w-full flex-row items-center justify-center rounded-t-xl bg-red-400" />
+              <div className="flex h-[60%] w-full flex-row rounded-t-xl bg-red-400">
+                <div className="flex w-full items-start justify-end">
+                  {/* Edit button in top right of red border */}
+                  <button className="mt-5 mr-5 flex flex-row text-xl font-bold text-black hover:text-gray-800 hover:underline">
+                    {/* SVG Pencil */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 512"
+                      fill="currentColor"
+                      className="mr-1 h-6 w-6"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H322.8c-3.1-8.8-3.7-18.4-1.4-27.8l15-60.1c2.8-11.3 8.6-21.5 16.8-29.7l40.3-40.3c-32.1-31-75.7-50.1-123.9-50.1H178.3zm435.5-68.3c-15.6-15.6-40.9-15.6-56.6 0l-29.4 29.4 71 71 29.4-29.4c15.6-15.6 15.6-40.9 0-56.6l-14.4-14.4zM375.9 417c-4.1 4.1-7 9.2-8.4 14.9l-15 60.1c-1.4 5.5 .2 11.2 4.2 15.2s9.7 5.6 15.2 4.2l60.1-15c5.6-1.4 10.8-4.3 14.9-8.4L576.1 358.7l-71-71L375.9 417z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <label>Edit</label>
+                  </button>
+                </div>
+              </div>
               <div className="relative bottom-[20%] h-20 w-20 rounded-full bg-blue-400" />
             </div>
             <div className="mt-10 grid h-[80rem] w-[95%] grid-cols-6 gap-12 rounded-md bg-teal-500 p-8">
@@ -169,7 +195,10 @@ class Account extends Component<{}, AccountState> {
                 />
               </div>
               <div className="col-span-1 col-start-5 flex flex-col">
-                <button className="h-10 w-32 rounded-lg bg-red-400 font-bold text-white hover:bg-red-700">
+                <button
+                  className="h-10 w-32 rounded-lg bg-red-400 font-bold text-white hover:bg-red-700"
+                  onClick={this.handleSaveButtonClicked}
+                >
                   Save
                 </button>
               </div>
