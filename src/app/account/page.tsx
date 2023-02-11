@@ -1,9 +1,11 @@
 "use client";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
-import React, { ReactNode, useEffect, useState, Component } from "react";
+import React, { ReactNode, Component } from "react";
 import AccountDetailTextBox from "./component/AccountDetailTextBox";
 import CitySelect from "./component/CitySelect";
+import KecamatanSelect from "./component/KecamatanSelect";
+import KelurahanSelect from "./component/KelurahanSelect";
 import ProvinceSelect from "./component/ProvinceSelect";
 
 interface AccountState {
@@ -34,19 +36,27 @@ class Account extends Component<{}, AccountState> {
     this.setState({ city: event.target.value });
   };
 
+  handleKecamatanChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    this.setState({ kecamatan: event.target.value });
+  };
+
+  handleKelurahanChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    this.setState({ kelurahan: event.target.value });
+  };
+
   render(): ReactNode {
-    const { province, city } = this.state;
+    const { province, city, kecamatan } = this.state;
     return (
       <main>
         <NavBar />
         <div className="mb-10 flex h-full w-full flex-col items-center justify-center bg-white">
           <h1 className="mb-5 mt-16 text-4xl font-bold">User Profile</h1>
-          <div className="mb-10 flex h-[70rem] w-[90%] flex-col items-center justify-center rounded-xl pb-10 shadow-2xl shadow-black">
+          <div className="mb-10 flex h-[85rem] w-[90%] flex-col items-center justify-center rounded-xl pb-10 shadow-2xl shadow-black">
             <div className="flex h-[30%] w-full flex-col items-center justify-center">
               <div className="flex h-[60%] w-full flex-row items-center justify-center rounded-t-xl bg-red-400" />
               <div className="relative bottom-[20%] h-20 w-20 rounded-full bg-blue-400" />
             </div>
-            <div className="mt-10 grid h-[65rem] w-[95%] grid-cols-6 gap-12 rounded-md bg-teal-500 p-8">
+            <div className="mt-10 grid h-[80rem] w-[95%] grid-cols-6 gap-12 rounded-md bg-teal-500 p-8">
               <div className="col-span-3 flex flex-col">
                 <AccountDetailTextBox
                   labelText="First Name"
@@ -117,7 +127,7 @@ class Account extends Component<{}, AccountState> {
                   id="address"
                 />
               </div>
-              <div className="col-span-2 flex flex-col">
+              <div className="col-span-3 flex flex-col">
                 <ProvinceSelect onChange={this.handleProvinceChange} />
                 {/* <label className="text-l mb-5 font-bold">Province</label>
                 <input
@@ -126,7 +136,7 @@ class Account extends Component<{}, AccountState> {
                   id="province"
                 /> */}
               </div>
-              <div className="col-span-2 flex flex-col">
+              <div className="col-span-3 flex flex-col">
                 <CitySelect
                   onChange={this.handleCityChange}
                   provinceId={province}
@@ -139,12 +149,34 @@ class Account extends Component<{}, AccountState> {
                 /> */}
               </div>
               <div className="col-span-2 flex flex-col">
+                <KecamatanSelect
+                  onChange={this.handleKecamatanChange}
+                  cityId={city}
+                />
+              </div>
+              <div className="col-span-2 flex flex-col">
+                <KelurahanSelect
+                  kecamatanId={kecamatan}
+                  onChange={this.handleKelurahanChange}
+                />
+              </div>
+              <div className="col-span-2 flex flex-col">
                 <label className="text-l mb-5 font-bold">Zipcode</label>
                 <input
                   className="h-10 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                   placeholder="Kode Pos"
                   id="zipcode"
                 />
+              </div>
+              <div className="col-span-1 col-start-5 flex flex-col">
+                <button className="h-10 w-32 rounded-lg bg-red-400 font-bold text-white hover:bg-red-700">
+                  Save
+                </button>
+              </div>
+              <div className="col-span-1 col-start-6 flex flex-col">
+                <button className="h-10 w-32 rounded-lg bg-white font-bold text-black hover:bg-gray-300">
+                  Cancel
+                </button>
               </div>
             </div>
           </div>
