@@ -10,9 +10,14 @@ import { useEffect, useState } from "react";
 export default function Page() {
   let email: string | undefined;
   let uuId: string | undefined;
+
   const { supabase } = useSupabase();
+
   const [user, setUser] = useState<any>();
   const [userDb, setUserDb] = useState<any>();
+  const [markets, setMarkets] = useState<any>([]);
+  const [cats, setCats] = useState<any>([]);
+
   async function fetchUser() {
     try {
       const { data } = await supabase.auth.getUser();
@@ -21,18 +26,37 @@ export default function Page() {
       uuId = data.user?.id;
     } catch {}
   }
+
+  async function fetchMarket() {
+    try {
+      const { data, error } = await supabase.from("markets").select("*");
+      setMarkets(data);
+      // console.log(data);
+      // console.log(error?.message);
+    } catch {}
+  }
+
+  async function fetchCats() {
+    try {
+      const { data, error } = await supabase.from("cats").select("*");
+      setCats(data);
+      // console.log(data);
+      // console.log(error?.message);
+    } catch {}
+  }
+
   useEffect(() => {
     async function fetchUserDb() {
       try {
         await fetchUser();
-        console.log(user?.email);
+        // console.log(user?.email);
         const { data, error } = await supabase
           .from("users")
           .select("*")
           .eq("email", email);
         setUserDb(data);
         if (error) {
-          console.log("error", error.message);
+          // console.log("error", error.message);
         } else {
           console.log("data", data);
         }
@@ -44,16 +68,24 @@ export default function Page() {
             },
           ]);
           if (error) {
-            console.log("error", error.message);
+            // console.log("error", error.message);
           } else {
-            console.log("data", data);
+            // console.log("data", data);
           }
         }
       } catch {}
     }
     fetchUserDb();
   }, []);
-  //i am here
+
+  useEffect(() => {
+    fetchMarket();
+  }, []);
+
+  useEffect(() => {
+    fetchCats();
+  }, []);
+
   return (
     <main>
       <NavBar />
@@ -62,20 +94,17 @@ export default function Page() {
         {user?.user == null ? beforeLogin() : afterLogin()}
         <div className="items-top flex flex-row justify-between">
           <h1 className="mb-8 text-2xl font-bold">Popular Market</h1>
-          <a href="/market" className="text-xl">
+          <a
+            href="/market"
+            className="text-xl"
+          >
             See All
           </a>
         </div>
         <div className="flex h-auto scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
-          <MarketBox />
-          <MarketBox />
-          <MarketBox />
-          <MarketBox />
-          <MarketBox />
-          <MarketBox />
-          <MarketBox />
-          <MarketBox />
-          <MarketBox />
+          {markets?.map((i: any) => (
+            <MarketBox obj={i} key={i.id}/>
+          ))}
         </div>
 
         {/*Kategori*/}
@@ -83,20 +112,19 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Categories</h1>
-              <a href="/categories" className="text-xl">
+              <a
+                href="/categories"
+                className="text-xl"
+              >
                 See All
               </a>
             </div>
             <div className="flex h-full w-full flex-col items-center justify-start gap-4 rounded-lg border-4 border-black">
-              <div className="flex h-16 w-full items-center justify-center">
-                <h1 className="text-xl font-bold underline">kategori1</h1>
-              </div>
-              <div className="flex h-16 w-full items-center justify-center">
-                <h1 className="text-xl font-bold underline">kategori2</h1>
-              </div>
-              <div className="flex h-16 w-full items-center justify-center">
-                <h1 className="text-xl font-bold underline">kategori3</h1>
-              </div>
+              {cats?.map((i: any) => (
+                <div className="flex h-16 w-full items-center justify-center" id={i.id}>
+                  <h1 className="text-xl font-bold underline">{i.name}</h1>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -104,7 +132,10 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between py-8 px-0 lg:w-1/2 lg:py-0 lg:px-8">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Education</h1>
-              <a href="/education" className="text-xl">
+              <a
+                href="/education"
+                className="text-xl"
+              >
                 See All
               </a>
             </div>
