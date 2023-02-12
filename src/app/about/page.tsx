@@ -1,10 +1,12 @@
 import NavBar from "@/components/NavBar";
+import TheFeedNotification from "@/components/TheFeedNotification";
 import Image from "next/image";
 
 export default function Page() {
   return (
     <main>
       <NavBar />
+      <TheFeedNotification />
       <div className="flex h-screen w-screen flex-col items-center justify-center gap-12 bg-[url('https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/Asset-About3.png')]  bg-cover bg-bottom px-48">
         <Image
           src="https://raw.githubusercontent.com/Kaliangkrik-Production/eco-match/main/asset/Pict-About.png"
