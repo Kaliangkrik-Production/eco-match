@@ -9,15 +9,16 @@ import { useEffect, useState } from "react";
 export default function Page({ params }: any) {
   const { supabase } = useSupabase();
   const [market, setMarket] = useState<any>();
-  async function fetchMarket() {
-    const temp = await supabase
-      .from("markets")
-      .select("*, cats(name)")
-      .eq("id", params.marketId);
-    console.log(temp);
-    setMarket(temp);
-  }
+  
   useEffect(() => {
+    async function fetchMarket() {
+      const temp = await supabase
+        .from("markets")
+        .select("*, cats(name)")
+        .eq("id", params.marketId);
+      console.log(temp);
+      setMarket(temp);
+    }
     fetchMarket();
   }, []);
 

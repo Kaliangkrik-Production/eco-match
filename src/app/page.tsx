@@ -18,34 +18,16 @@ export default function Page() {
   const [markets, setMarkets] = useState<any>([]);
   const [cats, setCats] = useState<any>([]);
 
-  async function fetchUser() {
-    try {
-      const { data } = await supabase.auth.getUser();
-      setUser(data);
-      email = data.user?.email;
-      uuId = data.user?.id;
-    } catch {}
-  }
-
-  async function fetchMarket() {
-    try {
-      const { data, error } = await supabase.from("markets").select("*");
-      setMarkets(data);
-      // console.log(data);
-      // console.log(error?.message);
-    } catch {}
-  }
-
-  async function fetchCats() {
-    try {
-      const { data, error } = await supabase.from("cats").select("*");
-      setCats(data);
-      // console.log(data);
-      // console.log(error?.message);
-    } catch {}
-  }
-
   useEffect(() => {
+    async function fetchUser() {
+      try {
+        const { data } = await supabase.auth.getUser();
+        setUser(data);
+        email = data.user?.email;
+        uuId = data.user?.id;
+      } catch {}
+    }
+
     async function fetchUserDb() {
       try {
         await fetchUser();
@@ -79,10 +61,26 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
+    async function fetchMarket() {
+      try {
+        const { data, error } = await supabase.from("markets").select("*");
+        setMarkets(data);
+        // console.log(data);
+        // console.log(error?.message);
+      } catch {}
+    }
     fetchMarket();
   }, []);
 
   useEffect(() => {
+    async function fetchCats() {
+      try {
+        const { data, error } = await supabase.from("cats").select("*");
+        setCats(data);
+        // console.log(data);
+        // console.log(error?.message);
+      } catch {}
+    }
     fetchCats();
   }, []);
 
@@ -103,7 +101,10 @@ export default function Page() {
         </div>
         <div className="flex h-auto scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
           {markets?.map((i: any) => (
-            <MarketBox obj={i} key={i.id}/>
+            <MarketBox
+              obj={i}
+              key={i.id}
+            />
           ))}
         </div>
 
@@ -121,7 +122,10 @@ export default function Page() {
             </div>
             <div className="flex h-full w-full flex-col items-center justify-start gap-4 rounded-lg border-4 border-black">
               {cats?.map((i: any) => (
-                <div className="flex h-16 w-full items-center justify-center" id={i.id}>
+                <div
+                  className="flex h-16 w-full items-center justify-center"
+                  id={i.id}
+                >
                   <h1 className="text-xl font-bold underline">{i.name}</h1>
                 </div>
               ))}
@@ -155,9 +159,9 @@ export default function Page() {
           {/*Promo*/}
           <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
             <div
-              className="h-full w-full rounded-lg bg-gray-400 "
+              className="h-full w-full rounded-lg"
               style={{
-                backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
+                backgroundImage: `url("${"https://cdn.discordapp.com/attachments/1071765184126914680/1074321873371930704/Rectangle_11.png"}")`,
                 backgroundSize: "cover",
               }}
             ></div>
@@ -215,23 +219,9 @@ function afterLogin() {
       <div className="py-24">
         <div className="flex h-auto snap-x scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
           <div
-            className="aspect-[40/9] h-96 snap-center bg-black"
+            className="aspect-[40/9] h-96 snap-center"
             style={{
-              backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
-              backgroundSize: "cover",
-            }}
-          ></div>
-          <div
-            className="aspect-[40/9] h-96 snap-center bg-black"
-            style={{
-              backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
-              backgroundSize: "cover",
-            }}
-          ></div>
-          <div
-            className="aspect-[40/9] h-96 snap-center bg-black"
-            style={{
-              backgroundImage: `url("${"https://lh5.googleusercontent.com/p/AF1QipMRNb_2IHQsB9ZXtCGYwuHh7VuDWd5uXAAIp-iN"}")`,
+              backgroundImage: `url("${"https://cdn.discordapp.com/attachments/1071765184126914680/1074322038002552872/Rectangle_23.png"}")`,
               backgroundSize: "cover",
             }}
           ></div>
