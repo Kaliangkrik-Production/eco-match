@@ -92,19 +92,13 @@ export default function Page() {
         {user?.user == null ? beforeLogin() : afterLogin()}
         <div className="items-top flex flex-row justify-between">
           <h1 className="mb-8 text-2xl font-bold">Popular Market</h1>
-          <a
-            href="/market"
-            className="text-xl"
-          >
+          <a href="/market" className="text-xl">
             See All
           </a>
         </div>
         <div className="flex h-auto scroll-m-10 flex-row items-start justify-start gap-8 overflow-auto whitespace-nowrap">
           {markets?.map((i: any) => (
-            <MarketBox
-              obj={i}
-              key={i.id}
-            />
+            <MarketBox obj={i} key={i.id} />
           ))}
         </div>
 
@@ -113,10 +107,7 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between lg:w-1/4">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Categories</h1>
-              <a
-                href="/categories"
-                className="text-xl"
-              >
+              <a href="/categories" className="text-xl">
                 See All
               </a>
             </div>
@@ -125,6 +116,7 @@ export default function Page() {
                 <div
                   className="flex h-16 w-full items-center justify-center"
                   id={i.id}
+                  key={i.id}
                 >
                   <h1 className="text-xl font-bold underline">{i.name}</h1>
                 </div>
@@ -136,10 +128,7 @@ export default function Page() {
           <div className="flex h-[40rem] w-full flex-col items-center justify-between py-8 px-0 lg:w-1/2 lg:py-0 lg:px-8">
             <div className="items-top flex w-full flex-row justify-between">
               <h1 className="mb-8 text-2xl font-bold">Education</h1>
-              <a
-                href="/education"
-                className="text-xl"
-              >
+              <a href="/education" className="text-xl">
                 See All
               </a>
             </div>
